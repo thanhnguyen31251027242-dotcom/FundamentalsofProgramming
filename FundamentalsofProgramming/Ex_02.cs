@@ -122,6 +122,37 @@ float kelvin = celsius + 273f;
 float fahrenheit = (celsius * 9 / 5) + 32;
 Console.WriteLine($"{celsius} in C degree = {kelvin} K, = {fahrenheit} F ");
 
+//15. Remove Character by Index: Write a C# program that removes a specified character from a non-empty string using the index of a character.
+Console.Write("Enter a string: ");
+string str = Console.ReadLine();
+Console.Write("Enter index to remove: ");
+int index = int.Parse(Console.ReadLine());
+if (index >= 0 && index < str.Length)
+{
+    string result5 = str.Remove(index, 1);
+    Console.WriteLine("Result: " + result5 );
+}
+else
+{ Console.WriteLine("Invalid index!"); }
+
+//16. Swap First and Last Characters: Write a C# program to create a new string from a given string where the first and last characters change their positions
+Console.Write("Enter a string: ");
+string str1 = Console.ReadLine();
+if (str1.Length > 1)
+{
+    string result6 = str1[str1.Length - 1] + str1.Substring(1, str1.Length - 2) + str1[0];
+    Console.WriteLine("Result: " + result6);
+}
+else
+{ Console.WriteLine("Result: " + str1); }
+
+// 17. Add First Character to Front and Back: Write a C# program to create a string from a given string (length 1 or more) with the first character added at the front and back.
+Console.Write("Input a string: ");
+string str2 = Console.ReadLine();
+char firstchar = str2[0];
+string result7 = firstchar + str2 + firstchar;
+Console.WriteLine("Result: " + result7);
+
 //18. Check Positive and Negative Pair: Write a C# program to check a pair of integers and return true if one is negative and one is positive
 Console.Write("Enter the first number: ");
 int numA = int.Parse(Console.ReadLine());
@@ -171,6 +202,7 @@ Console.Write("Enter a string: ");
 string input = Console.ReadLine();
 string result4 = input.ToLower();
 Console.WriteLine("Lowercase string: " + result4);
+
 //
 
 
