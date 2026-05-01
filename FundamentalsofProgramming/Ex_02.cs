@@ -130,7 +130,7 @@ int index = int.Parse(Console.ReadLine());
 if (index >= 0 && index < str.Length)
 {
     string result5 = str.Remove(index, 1);
-    Console.WriteLine("Result: " + result5 );
+    Console.WriteLine("Result: " + result5);
 }
 else
 { Console.WriteLine("Invalid index!"); }
@@ -203,7 +203,29 @@ string input = Console.ReadLine();
 string result4 = input.ToLower();
 Console.WriteLine("Lowercase string: " + result4);
 
-//
+//24. Find Longest Word in String: Write a C# program to find the longest word in a string.
+using System.ComponentModel;
+
+Console.Write("Enter a string: ");
+string input1 = Console.ReadLine();
+string[] words = input1.Split(' ');
+string longestWord = "";
+foreach (string word in words)
+{
+    if (word.Length > longestWord.Length)
+    { longestWord = word; }
+}
+Console.WriteLine("Longest word: " + longestWord);
+
+//25. Print Odd Numbers 1 to 99: Write a C# program to print odd numbers from 1 to 99. Prints one number per line.
+Console.WriteLine("Odd numbers from 1 to 99: ");
+for (int i = 1; i <= 99; i += 2) { Console.WriteLine(i); }
+another way
+Console.WriteLine("Odd numbers from 1 to 99: ");
+for (int i = 1; i <= 99; i++)
+{ if (i % 2 != 0) { Console.WriteLine(i); } }
+
+
 
 
 
