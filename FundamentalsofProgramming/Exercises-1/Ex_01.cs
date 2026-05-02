@@ -29,7 +29,7 @@ namespace FundamentalsofProgramming
 
 10. to convert days to years, weeks and days
          */
-        private static void Main(string[] args)
+        public static void Run()
         {
             //1. to Add / Sum Two Numbers.
             int a = 10 + 6;
