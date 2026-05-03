@@ -9,10 +9,7 @@ namespace FundamentalsofProgramming.Exercises
     {
         static void Main(string[] args)
         {
-            Ex_01.Run();
-            Ex_02.Run();
-            Ex_03.Run();
-            luyentap.Run();
+            Ex_04.Run();
         }
     }
 }
