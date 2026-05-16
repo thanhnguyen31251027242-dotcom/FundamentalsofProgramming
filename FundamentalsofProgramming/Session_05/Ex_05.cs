@@ -9,7 +9,7 @@ using System.Text;
 
 namespace FundamentalsofProgramming.Session_04
 {
-    internal class Ex_04
+    internal class Ex_05
     {
         static int Max(int a, params int[] pars)
         {

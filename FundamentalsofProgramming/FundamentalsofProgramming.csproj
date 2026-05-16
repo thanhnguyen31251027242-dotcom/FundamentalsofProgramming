@@ -5,7 +5,11 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>FundamentalsofProgramming.Exercises.Program</StartupObject>
+    <StartupObject>FundamentalsofProgramming.Session_06.Ex_06_PART_2</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Session_01\" />
+  </ItemGroup>
 
 </Project>
