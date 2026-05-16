@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FundamentalsofProgramming
+namespace FundamentalsofProgramming.Session_01
 {
     internal class Ex_01
     {
+        static void Main(string[] args)
         /*
          Write programs that: 
 
@@ -29,15 +30,14 @@ namespace FundamentalsofProgramming
 
 10. to convert days to years, weeks and days
          */
-        public static void Run()
         {
             //1. to Add / Sum Two Numbers.
             int a = 10 + 6;
             Console.WriteLine("The sum of 10 and 6 is: " + a);
             //2. to Swap Values of Two Variables.
             int b = 5; int c = 10;
-            Console.WriteLine($"Truoc khi hoan doi b = { b},c = { c}");
-                        int temp = b;
+            Console.WriteLine($"Truoc khi hoan doi b = {b},c = {c}");
+            int temp = b;
             b = c;
             c = temp;
             Console.WriteLine($"sau khi hoan doi b = {b}, c = {c}");
@@ -55,7 +55,7 @@ namespace FundamentalsofProgramming
             Console.WriteLine($"{celsius} in C degree = {fahrenheit} F");
             float fahrenheit2 = 77f;
             float celsius2 = (fahrenheit2 - 32) * 5 / 9;
-            Console.WriteLine( $"{fahrenheit2} in F degree = {celsius2} C");
+            Console.WriteLine($"{fahrenheit2} in F degree = {celsius2} C");
             //6. to find the Size of data types
             Console.WriteLine("int: " + sizeof(int) + " bytes");
             Console.WriteLine("double: " + sizeof(double) + " bytes");
@@ -72,22 +72,21 @@ namespace FundamentalsofProgramming
             //8. to Calculate Area of Circle
             Console.Write("Nhap ban kinh");
             double r = double.Parse(Console.ReadLine());
-            double areaCircle = Math.PI * Math.Pow(r,2);
+            double areaCircle = Math.PI * Math.Pow(r, 2);
             Console.WriteLine("dien tich hinh tron = " + areaCircle);
             //9. to Calculate Area of Square
             Console.Write("Nhap canh");
             double x = double.Parse(Console.ReadLine());
-            double areasquare = Math.Pow(x,2);
+            double areasquare = Math.Pow(x, 2);
             Console.WriteLine("dien tich hinh vuong = " + areasquare);
             //10. to convert days to years, weeks and days
             Console.Write("Nhap so ngay: ");
-                        int days = int.Parse(Console.ReadLine());
-                        int years = days / 365;
-                                    int weeks = (days % 365) / 7;
-                                                int remainingDays = (days % 365) % 7;
-                        Console.WriteLine($"{days} days = {years} years, {weeks} weeks, {remainingDays} days");
+            int days = int.Parse(Console.ReadLine());
+            int years = days / 365;
+            int weeks = (days % 365) / 7;
+            int remainingDays = (days % 365) % 7;
+            Console.WriteLine($"{days} days = {years} years, {weeks} weeks, {remainingDays} days");
 
         }
     }
-
     }

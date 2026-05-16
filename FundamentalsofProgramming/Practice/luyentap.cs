@@ -6,7 +6,7 @@ namespace FundamentalsofProgramming.Practice
 {
     internal class luyentap
     {
-        public static void Run()
+static void Main(string[] args)
         { }
     }
 }

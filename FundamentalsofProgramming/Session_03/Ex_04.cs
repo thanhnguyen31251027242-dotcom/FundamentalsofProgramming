@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace FundamentalsofProgramming.Practice
+namespace FundamentalsofProgramming.Session_03
 {
     internal class Ex_04
     {
-       public static void Run()
+    static void Main(string[] args)
        
         //1. Write a C# Sharp program to check whether a given number is even or odd.
         {
