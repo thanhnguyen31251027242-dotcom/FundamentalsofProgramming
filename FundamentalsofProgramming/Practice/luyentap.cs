@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Channels;
 
@@ -24,18 +25,35 @@ namespace FundamentalsofProgramming.Practice
         {
             return Math.Max(Math.Max(a, b), c);
         }
-        
+
         //giai thua
         static long Tinhgiaithua(int m)
         {
             long ketqua = 1;
-            for(int i=1;i<=m;i++)
+            for (int i = 1; i <= m; i++)
             {
                 ketqua *= i;
             }
             return ketqua;
-
         }
+            //kiem tra so nguyen to
+            static bool Kiemtrasonguyento(int v)
+            {
+                if (v<2)
+                {
+                    return false;
+                }
+                for (int i=2;i<=Math.Sqrt(v);i++)
+                {
+                    if (v%i==0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+        
         static void Main(string[] args)
         {
             //kiem tra so chan
@@ -53,7 +71,23 @@ namespace FundamentalsofProgramming.Practice
             int m = 5;
             long giaithua = Tinhgiaithua(m);
             Console.WriteLine(m + "! =" + giaithua);
+            //kiem tra so nguyen to
+            int v = int.Parse(Console.ReadLine());
+            bool kq = Kiemtrasonguyento(v);
+                if (kq)
+            {
+                Console.Write(" la so nguyen to");
+                
+            }
+            else
+            {
+                Console.Write("khong phai la so nguyen to");
+            }
 
+      
+    
+         
+        
 
         }
     }
