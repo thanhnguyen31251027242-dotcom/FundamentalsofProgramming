@@ -53,7 +53,19 @@ namespace FundamentalsofProgramming.Practice
                 return true;
             }
 
-        
+        //in day fibonaccy
+        static void Fibonaccy(int l)
+        {
+            int a = 0; int b = 1;
+            for (int i = 0; i < l; i++)
+            {
+                Console.Write($"{a} ");
+                int temp = a + b;
+                a = b;
+                b = temp;
+            }
+
+        }
         static void Main(string[] args)
         {
             //kiem tra so chan
@@ -76,14 +88,17 @@ namespace FundamentalsofProgramming.Practice
             bool kq = Kiemtrasonguyento(v);
                 if (kq)
             {
-                Console.Write(" la so nguyen to");
+                Console.WriteLine("la so nguyen to");
                 
             }
             else
             {
-                Console.Write("khong phai la so nguyen to");
+                Console.WriteLine("khong phai la so nguyen to");
             }
-
+                //in day fibonaccy
+                int l = 6;
+            Console.Write("Day fibonaccy la "); 
+            Fibonaccy(l);
       
     
          
