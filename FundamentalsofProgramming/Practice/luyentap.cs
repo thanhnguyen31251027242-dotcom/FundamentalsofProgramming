@@ -66,6 +66,10 @@ namespace FundamentalsofProgramming.Practice
             }
 
         }
+        static void In_mang(int i )
+        {
+
+        }
         static void Main(string[] args)
         {
             //kiem tra so chan
