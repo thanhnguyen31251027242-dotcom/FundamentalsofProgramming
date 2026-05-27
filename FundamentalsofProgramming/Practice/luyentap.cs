@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Channels;
@@ -13,7 +14,7 @@ namespace FundamentalsofProgramming.Practice
         {
             return n % 2 == 0;
         }
-        
+
         //tinh tong
         static int Tinhtong(int a, int b)
         {
@@ -36,22 +37,22 @@ namespace FundamentalsofProgramming.Practice
             }
             return ketqua;
         }
-            //kiem tra so nguyen to
-            static bool Kiemtrasonguyento(int v)
+        //kiem tra so nguyen to
+        static bool Kiemtrasonguyento(int v)
+        {
+            if (v < 2)
             {
-                if (v<2)
+                return false;
+            }
+            for (int i = 2; i <= Math.Sqrt(v); i++)
+            {
+                if (v % i == 0)
                 {
                     return false;
                 }
-                for (int i=2;i<=Math.Sqrt(v);i++)
-                {
-                    if (v%i==0)
-                    {
-                        return false;
-                    }
-                }
-                return true;
             }
+            return true;
+        }
 
         //in day fibonaccy
         static void Fibonaccy(int l)
@@ -66,23 +67,23 @@ namespace FundamentalsofProgramming.Practice
             }
 
         }
-        static void In_mang(int i )
+        static void In_mang(int i)
         {
 
         }
         static void Main(string[] args)
         {
             //kiem tra so chan
-            int n=8;
+            int n = 8;
             if (kiemtrasochan(n))
             { Console.WriteLine($"{n} la so chan"); }
             else { Console.WriteLine($"{n} la so le"); }
             //tinh tong
-            int ketqua = Tinhtong(5,7);
-            Console.WriteLine("Tong la "+ ketqua );
+            int ketqua = Tinhtong(5, 7);
+            Console.WriteLine("Tong la " + ketqua);
             //tim max
             int max = TimMax(4, 6, 11);
-            Console.WriteLine("Max cua ba so la "+ max );
+            Console.WriteLine("Max cua ba so la " + max);
             //tinh giai thua
             int m = 5;
             long giaithua = Tinhgiaithua(m);
@@ -90,24 +91,59 @@ namespace FundamentalsofProgramming.Practice
             //kiem tra so nguyen to
             int v = int.Parse(Console.ReadLine());
             bool kq = Kiemtrasonguyento(v);
-                if (kq)
+            if (kq)
             {
                 Console.WriteLine("la so nguyen to");
-                
+
             }
             else
             {
                 Console.WriteLine("khong phai la so nguyen to");
             }
-                //in day fibonaccy
-                int l = 6;
-            Console.Write("Day fibonaccy la "); 
+            ////in day fibonaccy
+            int l = 6;
+            Console.Write("Day fibonaccy la ");
             Fibonaccy(l);
-      
-    
+
+
+            /*Cho:  
+           str1 = “English = 78 Science = 83 Math = 68 History = 65”
+ 	        1.tính tổng các số trong chuỗi trên
+
+              2.tính trung bình cộng*/
+            string str1 = "English = 78 Science = 83 Math = 68 History = 65";
+            string[] lst = str1.Split();
+            string so = "";
+            foreach(string s in lst)
+            {
+                //Console.WriteLine(s);
+                foreach(char c in s)
+                {
+                    //Console.WriteLine(c);
+                    if (char.IsDigit(c))
+                    {
+                        so += s + " ";
+                        break;
+                    }
+                }
+            }    
+
+            //Console.WriteLine(so);
+            so = so.Trim();
+            string[] lst1 = so.Split(' ');
+            int tong = 0;
+            double tbc = (double)tong / lst1.Length;
+            foreach(string y in lst1)
+            {
+                //Console.WriteLine(y);
+               tong += int.Parse(y);
+            }
+            Console.WriteLine("tong la: " + tong);
+            Console.WriteLine("trung binh cong la: " + tbc);
+
          
-        
 
         }
+
     }
 }
