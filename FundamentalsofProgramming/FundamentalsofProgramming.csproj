@@ -5,7 +5,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>FundamentalsofProgramming.Practice.luyentap</StartupObject>
+    <StartupObject>FundamentalsofProgramming.on_tap.ontapgiuaki_01</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
