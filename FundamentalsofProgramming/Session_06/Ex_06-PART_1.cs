@@ -8,259 +8,225 @@ namespace FundamentalsofProgramming.Session_06
 {
     internal class Ex_06_PART_1
     {
-        //1.to caculate the average value of array elements.
-        static double avg(int[] arr)
+        // 1. Tính trung bình
+        static double TinhTrungBinh(int[] arr)
         {
-            double a = 0, sum = 0;
-            foreach (int i in arr)
-                sum += i;
-            a = sum / arr.Length;
-            return a;
-        }
-        //2.to test if an array contains a specific value
-        static bool containsValue(int[] arr1, int x)
-        {
-            foreach (int i in arr1)
+            int sum = 0;
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (x == i)
+                sum += arr[i];
+            }
+
+            return (double)sum / arr.Length;
+        }
+
+        // 2. Kiểm tra tồn tại
+        static bool KiemTraTonTai(int[] arr, int value)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == value)
                     return true;
             }
-            return false;
 
+            return false;
         }
-        //3.to find the index of an array element.
-        static int FindIndex(int[] arr2, int x)
+
+        // 3. Tìm vị trí
+        static int TimViTri(int[] arr, int value)
         {
-            for (int i = 0; i < arr2.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (arr2[i] == x)
-                {
+                if (arr[i] == value)
                     return i;
-                }
             }
 
             return -1;
         }
-        //4.to remove a specific element from an array.
-        //tim phan tu can xoa, neu tim thay thi xoa va tra ve true, nguoc lai tra ve false
-        static bool xoa_phantu(int[] arr3, ref int n, int x)
+
+        // 4. Xóa phần tử đầu tiên có giá trị value
+        static int[] XoaPhanTu(int[] arr, int value)
         {
-            for (int i =0; i < n; i++)
+            int index = TimViTri(arr, value);
+
+            if (index == -1)
+                return arr;
+
+            int[] result = new int[arr.Length - 1];
+
+            int j = 0;
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (arr3[i] == x)
+                if (i != index)
                 {
-                    for (int j = i; j < n - 1; j++)
+                    result[j] = arr[i];
+                    j++;
+                }
+            }
+
+            return result;
+        }
+
+        // 5. Tìm max và min
+        static int TimGtln(int[] arr)
+        {
+            int Max = arr[0];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (Max < arr[i])
+                { Max = arr[i]; }
+            }
+            return Max;
+        }
+
+        static int TimGtnn(int[]arr)
+        {
+            int Min = arr[0];
+            for (int i = 0; i<arr.Length; i++)
+            {
+                if (Min > arr[i])
+                { Min = arr[i]; }
+            }
+            return Min;
+        }
+
+
+        // 6. Đảo ngược mảng
+        static int[] DaoNguocMang(int[] arr)
+        {
+            int[] result = new int[arr.Length];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                result[i] = arr[arr.Length - 1 - i];
+            }
+
+            return result;
+        }
+
+        // 7. Tìm phần tử trùng lặp
+        static void TimPhanTuTrungLap(int[] arr)
+        {
+            Console.Write("Gia tri trung lap: ");
+
+            bool found = false;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int count = 0;
+
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[i] == arr[j])
+                        count++;
+                }
+
+                bool printed = false;
+
+                for (int k = 0; k < i; k++)
+                {
+                    if (arr[k] == arr[i])
                     {
-                        arr3[j] = arr3[j + 1];
-                    }
-                    n--;
-                    return true;
-                }
-            }
-            return false;
-        }
-        //sinh ngau nhien n phan tu cua mang
-        static void phatsinh_mang(int[] a, int n)
-        {
-            Random rnd = new Random();
-            for (int i = 0; i < n; i++)
-                a[i] = rnd.Next(1, 100);
-        }
-        static void In_Mang(int[] a, int n)
-        {
-            for(int i = 0;i < n; i++)
-                Console.Write(a[i] + " ");
-            Console.WriteLine();
-        }
-        //5.to find the maximum and minimum value of an array.
-        static int MaxValue(int[] arr4)
-        {
-            int max = arr4[0];
-
-            foreach (int i in arr4)
-            {
-                if (i > max)
-                {
-                    max = i;
-                }
-            }
-
-            return max;
-        }
-
-        // to find the minimum value of an array
-        static int MinValue(int[] arr4)
-        {
-            int min = arr4[0];
-
-            foreach (int i in arr4)
-            {
-                if (i < min)
-                {
-                    min = i;
-                }
-            }
-
-            return min;
-        }
-        //6.to reverse an array of integer values.
-        static void ReverseArray(int[] arr5)
-        {
-            int left = 0;
-            int right = arr5.Length - 1;
-
-            while (left < right)
-            {
-                int temp = arr5[left];
-                arr5[left] = arr5[right];
-                arr5[right] = temp;
-
-                left++;
-                right--;
-            }
-        }
-        //7.to find duplicate values in an array of values.
-        static void FindDuplicate(int[] arr6)
-        {
-            Console.WriteLine("Duplicate values:");
-
-            for (int i = 0; i < arr6.Length; i++)
-            {
-                for (int j = i + 1; j < arr6.Length; j++)
-                {
-                    if (arr6[i] == arr6[j])
-                    {
-                        Console.Write(arr6[i] + " ");
-                        break;
-                    }
-                }
-            }
-
-            Console.WriteLine();
-        }
-        //8.to remove duplicate elements from an array.
-        static int[] RemoveDuplicate(int[] arr7)
-        {
-            int[] temp = new int[arr7.Length];
-            int count = 0;
-
-            for (int i = 0; i < arr7.Length; i++)
-            {
-                bool isDuplicate = false;
-
-                for (int j = 0; j < count; j++)
-                {
-                    if (arr7[i] == temp[j])
-                    {
-                        isDuplicate = true;
+                        printed = true;
                         break;
                     }
                 }
 
-                if (!isDuplicate)
+                if (count > 1 && !printed)
                 {
-                    temp[count] = arr7[i];
-                    count++;
+                    Console.Write(arr[i] + " ");
+                    found = true;
                 }
             }
 
-            int[] result = new int[count];
+            if (!found)
+                Console.Write("No duplicates");
 
-            for (int i = 0; i < count; i++)
+            Console.WriteLine();
+        }
+
+        // 8. Xóa phần tử trùng lặp
+        static int[] XoaPhanTuTrungLap(int[] arr)
+        {
+            int[] temp = new int[arr.Length];
+            int size = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                bool exists = false;
+
+                for (int j = 0; j < size; j++)
+                {
+                    if (temp[j] == arr[i])
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    temp[size] = arr[i];
+                    size++;
+                }
+            }
+
+            int[] result = new int[size];
+
+            for (int i = 0; i < size; i++)
             {
                 result[i] = temp[i];
             }
 
             return result;
         }
+
+        static void InMang(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
         static void Main()
         {
-            //1.to caculate the average value of array elements.
-            int[] arr = { 1, 2, 3, 4, 5, 32, 5, 6 };
-            double tb = avg(arr);
-            Console.WriteLine("trung binh gia tri trong mang " + tb);
-            //2.to test if an array contains a specific value
             Random rd = new Random();
 
-            int[] randomArr = new int[10];
+            int[] arr = new int[15];
 
-            for (int i = 0; i < randomArr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                randomArr[i] = rd.Next(1, 101);
+                arr[i] = rd.Next(1, 11);
             }
-            Console.WriteLine("Array elements:");
 
-            foreach (int i in arr)
-            {
-                Console.Write(i + " ");
-            }
+            Console.WriteLine("Mang Ngau Nhien:");
+           InMang(arr);
+
+            Console.WriteLine("\nTrung Binh = " + TinhTrungBinh(arr));
+
+            Console.WriteLine("Chua 5: " + KiemTraTonTai(arr, 5));
+
+            Console.WriteLine("Vi tri 5: " + TimViTri(arr, 5));
+
+            Console.WriteLine("\nSau khi xoa 5:");
+            InMang(XoaPhanTu(arr, 5));
+
+
+            Console.WriteLine("\nMax = " + TimGtln(arr));
+            Console.WriteLine("\nMin = " + TimGtnn(arr));
+
+            Console.WriteLine("\nMang sau khi dao nguoc:");
+            InMang(DaoNguocMang(arr));
 
             Console.WriteLine();
+            TimPhanTuTrungLap(arr);
 
-            Console.Write("Enter value to search: ");
-            int x = int.Parse(Console.ReadLine());
-
-
-            if (containsValue(arr, x))
-                Console.WriteLine("Array contains " + x);
-            else
-                Console.WriteLine("Array does not contain " + x);
-            //3.to find the index of an array element.
-            int[] arr2 = { 1, 2, 3, 4, 5 };
-
-            int index = FindIndex(arr2, 4);
-
-            Console.WriteLine("Index = " + index);
-            //4.to remove a specific element from an array.
-            Console.Write("Nhap so phan tu mang: ");
-            int n = int.Parse(Console.ReadLine());
-            int[] arr3 = new int[n];
-            phatsinh_mang(arr3, n);//sinh n so ngau nhien cho mang
-            In_Mang(arr3, n);
-            Console.Write("Nhap phan tu can xoa: ");
-            int y = int.Parse(Console.ReadLine());
-            bool kq = xoa_phantu(arr, ref n, y);
-            if(!kq)
-            {
-                Console.WriteLine("Khong tim thay phan tu nao can xoa!");
-            }
-            else
-            {
-                Console.WriteLine("Mang sau khi xoa: ");
-                for (int i = 0;i<n;i++)
-                {  Console.Write(arr3[i]+ " "); }
-            }
-            //5.to find the maximum and minimum value of an array.
-            int[] arr4 = { 5, 2, 9, 1, 7 };
-
-            Console.WriteLine("Maximum value: " + MaxValue(arr4));
-            Console.WriteLine("Minimum value: " + MinValue(arr4));
-            //6.to reverse an array of integer values.
-            int[] arr5 = { 1, 2, 3, 4, 5 };
-
-            ReverseArray(arr5);
-
-            Console.WriteLine("Array after reverse:");
-
-            foreach (int i in arr5)
-            {
-                Console.Write(i + " ");
-            }
-            //7.to find duplicate values in an array of values.
-            int[] arr6 = { 1, 2, 3, 2, 5, 1, 7 };
-
-            FindDuplicate(arr6);
-            //8.to remove duplicate elements from an array.
-            int[] arr7 = { 1, 2, 3, 2, 5, 1, 7 };
-
-            int[] newArr = RemoveDuplicate(arr7);
-
-            Console.WriteLine("Array after removing duplicates:");
-
-            foreach (int i in newArr)
-            {
-                Console.Write(i + " ");
-            }
+            Console.WriteLine("\nSau khi xoa trung lap:");
+           InMang(XoaPhanTuTrungLap(arr));
         }
     }
 }

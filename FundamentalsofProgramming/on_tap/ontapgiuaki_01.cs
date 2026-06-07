@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Channels;
@@ -8,8 +9,135 @@ namespace FundamentalsofProgramming.on_tap
 {
     internal class ontapgiuaki_01
     {
+        //tinh dien tich hinh tron
+        static double TinhDienTich(double n)
+        {
+            return Math.PI * Math.Pow(2, n);
+        }
+
+        //tra ve hang chuc
+        static int LamtronHangChuc(int n)
+        {
+            return n / 10;
+        }
+
+        //xep loai hoc luc
+        static string XeploaiHocLuc(double dtb)
+        {
+            if (dtb > 10 || dtb <0)
+            { return "diem khong hop le"; }
+            else if (dtb >= 8.0)
+            { return "Gioi"; }
+            else if (dtb >= 6.5 && dtb <8.0)
+            { return "Kha"; }
+            else if (dtb >= 5.0 && dtb <6.5)
+            { return "Trung binh"; }
+            else
+            { return "Yeu"; }
+        }
+
+
+        //tinh tong so le tu 1 den n
+        static int TinhTongSoLe(int n)
+        {
+            int tong = 0;
+            for ( int i = 1; i<=n;i+=2)
+            {
+                tong += i;
+            }
+            return tong;
+        }
+
+
+        //dem so am trong mang
+        static int DemSoAm(int[] arr)
+        {
+            int tong = 0;
+            foreach(int i in arr)
+            {
+                if (i < 0)
+                { tong ++; }
+            }
+            return tong;
+        }
+
+        //Tim vi tri phan tu nho nhat trong mang
+        static int TimViTriPhanTuMin(int[] arr)
+        {
+            int Min = arr[0], Index = 0;
+            for (int i = 0; i<arr.Length;i++)
+            {
+                if (arr[i]<Min)
+                {  Min = arr[i]; Index = i;}
+            }
+            return Index;
+        }
+
+        //Tao mang bang com
+        static void TaomangCom(int[] arr, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("moi ban nhap vao so n: ");
+                int so = int.Parse(Console.ReadLine());
+                arr[i] = so;
+            }
+        }
+
+        //In mang
+        static void InMang(int[] arr)
+        {
+            for(int i = 0; i<arr.Length;i++)
+                Console.Write(arr[i]+ " ");
+        }
+
         static void Main(string[] args)
         {
+            //dien tich hinh tron
+            Console.WriteLine("moi ban nhap vao ban kinh: ");
+            double r= double.Parse(Console.ReadLine());
+            double dientichhinhtron = TinhDienTich(r);
+            Console.WriteLine("dien tich hinh tron la: "+dientichhinhtron);
+
+            //lam tron ve so hang chuc
+            Console.WriteLine("moi ban nhap vao so tra ve hang chuc: ");
+            int a = int.Parse(Console.ReadLine());
+            int Hangchuc = LamtronHangChuc(a);
+            Console.WriteLine(Hangchuc);
+
+            //xep loai hoc luc
+            Console.WriteLine("moi ban nhap diem cua minh: ");
+            double diem = double.Parse(Console.ReadLine());
+            string Hocluc = XeploaiHocLuc(diem);
+            Console.WriteLine(Hocluc);
+
+            //Tinh tong so le tu 1 den n
+            Console.WriteLine("moi ban nhap vao so n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Tong so le la: " +TinhTongSoLe(n));
+
+            //dem so am trong mang
+            int[] mang = { -1, -4, -2, 23, 54, 321, -10 };
+            int kq1 = DemSoAm(mang);
+            Console.WriteLine("So am trong mang la:" +kq1);
+
+
+            //Tim vi tri nho nhat trong mang
+            int[] arr = { 0, 32, -98, 26, 15, -18238, 21, 32, 1 };
+            int kq2 = TimViTriPhanTuMin(arr);
+            Console.WriteLine("phan tu nho nhat nam o vi tri: "+kq2);
+
+            //Tao mang bang com
+            int m = 5;
+            int[]com= new int[m];
+            TaomangCom(com,m);
+            InMang(com);
+
+
+
+
+
+
             //cộng, trừ, nhân, chia
             //int a, b;
             //Console.WriteLine("Moi nhap vao a: ");
@@ -294,19 +422,22 @@ namespace FundamentalsofProgramming.on_tap
             //Console.WriteLine("tong giai thua tu 1 den 10 la "+ tonggiaithua);
 
             //kiem tra tu 1-1000 so nao la so hoan hao ( so hoan hao 6=1+2+3)
-            for (int n = 1; n <= 1000; n++)
-            {
-                int sum = 0;
-                for (int i = 1; i < n; i++)
-                {
-                    if (n % i == 0)
-                    {
-                        sum += i;
-                    }
-                }
-                if (sum == n)
-                    Console.WriteLine($"{n} la so hoan hao");
-            }
+            //for (int n = 1; n <= 1000; n++)
+            //{
+            //    int sum = 0;
+            //    for (int i = 1; i < n; i++)
+            //    {
+            //        if (n % i == 0)
+            //        {
+            //            sum += i;
+            //        }
+            //    }
+            //    if (sum == n)
+            //        Console.WriteLine($"{n} la so hoan hao");
+            //}
+
+
+
         }
     }
 }
